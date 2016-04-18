@@ -54,6 +54,12 @@
           <instanceCap>2147483647</instanceCap>
           <label>agent</label>
           <volumes/>
+          <envVars>
+            <org.csanchez.jenkins.plugins.kubernetes.PodEnvVar>
+						  <key>KUBERNETES_NAMESPACE</key>
+            	<value>${KUBERNETES_NAMESPACE}</value>
+            </org.csanchez.jenkins.plugins.kubernetes.PodEnvVar>
+          </envVars>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
       </templates>
       <serverUrl>https://kubernetes.default</serverUrl>
