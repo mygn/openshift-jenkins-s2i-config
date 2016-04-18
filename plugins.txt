@@ -30,10 +30,6 @@ momentjs:1.1
 
 # remote loader https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Remote+Loader+Plugin
 workflow-remote-loader:1.1
-scm-api:1.0
-
-
-
 scm-api:1.1
 branch-api:1.1
 # commented out as superseded by other plugins
