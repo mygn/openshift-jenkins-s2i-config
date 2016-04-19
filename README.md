@@ -11,8 +11,7 @@ Run the following steps to build and deploy this customised OpenShift Jenkins Pi
     # modify the existing OpenShift Jenkins image adding Pipeline plugins and configuration
     s2i build https://github.com/rawlingsj/openshift-jenkins-s2i-config.git openshift/jenkins-1-centos7 fabric8/jenkins-openshift-pipeline:latest
 
-    oc create -f https://raw.githubusercontent.com/rawlingsj/openshift-jenkins-s2i-config/master/jenkins-template.yml
-    oc process jenkins -v JENKINS_PASSWORD=admin | oc create -f -
+    oc new-app -f https://raw.githubusercontent.com/rawlingsj/openshift-jenkins-s2i-config/master/jenkins-template.yml -p JENKINS_PASSWORD=admin
 
     # expose the Jenkins service as you would normally e.g.
     oc expose service jenkins --hostname=jenkins.vagrant.f8
