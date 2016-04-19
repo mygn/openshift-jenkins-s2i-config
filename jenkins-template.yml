@@ -5,6 +5,10 @@ metadata:
   labels: {}
   name: "jenkins"
 objects:
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: jenkins
 - apiVersion: "v1"
   kind: "Service"
   metadata:
