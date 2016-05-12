@@ -26,12 +26,12 @@ build_with_version
 if [[ ! -z "${TEST_MODE}" ]]; then
   IMAGE_NAME=${IMAGE_NAME} test/run
   if [[ $? -eq 0 ]] && [[ "${TAG_ON_SUCCESS}" == "true" ]]; then
-    echo "-> Re-tagging ${IMAGE_NAME} image to ${IMAGE_NAME%"-candidate"}"
-    docker tag -f $IMAGE_NAME ${IMAGE_NAME%"-candidate"}
+    echo "-> Re-tagging ${IMAGE_NAME} image to ${IMAGE_NAME/-candidate/}"
+    docker tag -f $IMAGE_NAME ${IMAGE_NAME/-candidate/}
   fi
 
   if [[ ! -z "${REGISTRY}" ]]; then
-    echo "-> Tagging image as" ${REGISTRY}/${IMAGE_NAME%"-candidate"}
-    docker tag -f $IMAGE_NAME ${REGISTRY}/${IMAGE_NAME%"-candidate"}
+    echo "-> Tagging image as" ${REGISTRY}/${IMAGE_NAME/-candidate/}
+    docker tag -f $IMAGE_NAME ${REGISTRY}/${IMAGE_NAME/-candidate/}
   fi
 fi
