@@ -57,7 +57,7 @@
       </templates>
       <serverUrl>https://kubernetes.default</serverUrl>
       <skipTlsVerify>false</skipTlsVerify>
-      <namespace>default</namespace>
+      <namespace></namespace>
       <jenkinsUrl>http://jenkins:80</jenkinsUrl>
       <jenkinsTunnel>jenkins-jnlp:50000</jenkinsTunnel>
       <containerCap>10</containerCap>
