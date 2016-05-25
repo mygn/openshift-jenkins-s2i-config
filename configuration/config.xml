@@ -50,7 +50,6 @@
           <privileged>false</privileged>
           <command></command>
           <args></args>
-          <remoteFs>/home/jenkins</remoteFs>
           <instanceCap>2147483647</instanceCap>
           <label>agent</label>
           <volumes/>
