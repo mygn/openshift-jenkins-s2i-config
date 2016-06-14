@@ -54,6 +54,17 @@
           <label>agent</label>
           <volumes/>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+        <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+          <name>redhatdistortion-maven</name>
+          <image>docker.io/redhatdistortion/maven-jenkins-slave</image>
+          <privileged>false</privileged>
+          <command></command>
+          <args></args>
+          <remoteFs>/opt/app-root/jenkins</remoteFs>
+          <instanceCap>2147483647</instanceCap>
+          <label>redhatdistortion-maven</label>
+          <volumes/>
+        </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
       </templates>
       <serverUrl>https://kubernetes.default</serverUrl>
       <skipTlsVerify>false</skipTlsVerify>
