@@ -13,6 +13,7 @@ matrix-project:1.7
 mercurial:1.54
 momentjs:1.1.1
 multiple-scms:0.6
+openshift-sync:0.0.8
 pipeline-build-step:2.1
 pipeline-input-step:2.0
 pipeline-rest-api:1.4
