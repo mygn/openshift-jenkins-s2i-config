@@ -45,34 +45,24 @@
       <name>kubernetes</name>
       <templates>
         <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
-          <name>agent</name>
-          <image>bparees/jenkinsslave</image>
+          <name>kubernetes</name>
+          <image>jenkinsci/jnlp-slave</image>
           <privileged>false</privileged>
           <command></command>
           <args></args>
           <instanceCap>2147483647</instanceCap>
-          <label>agent</label>
-          <volumes/>
-        </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
-        <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
-          <name>redhatdistortion-maven</name>
-          <image>docker.io/redhatdistortion/maven-jenkins-slave</image>
-          <privileged>false</privileged>
-          <command></command>
-          <args></args>
-          <remoteFs>/opt/app-root/jenkins</remoteFs>
-          <instanceCap>2147483647</instanceCap>
-          <label>redhatdistortion-maven</label>
+          <label>kubernetes</label>
           <volumes/>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
       </templates>
       <serverUrl>https://kubernetes.default</serverUrl>
       <skipTlsVerify>false</skipTlsVerify>
-      <namespace>pipelineproject</namespace>
+      <namespace>${KUBERNETES_NAMESPACE}</namespace>
       <jenkinsUrl>http://jenkins:80</jenkinsUrl>
       <jenkinsTunnel>jenkins-jnlp:50000</jenkinsTunnel>
       <containerCap>10</containerCap>
       <retentionTimeout>5</retentionTimeout>
+      <serviceAccount>jenkins</serviceAccount>
     </org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud>
   </clouds>
   <quietPeriod>1</quietPeriod>
