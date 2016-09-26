@@ -62,7 +62,7 @@
       <jenkinsTunnel>jenkins-jnlp:50000</jenkinsTunnel>
       <containerCap>10</containerCap>
       <retentionTimeout>5</retentionTimeout>
-      <serviceAccount>jenkins</serviceAccount>
+      <serviceAccount>jenkins-openshift</serviceAccount>
     </org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud>
   </clouds>
   <quietPeriod>1</quietPeriod>
