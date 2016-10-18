@@ -7,5 +7,5 @@ script:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "dedicated" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push fabric8/jenkins-openshift:dev
+    docker push fabric8/jenkins-openshift:dev;
     fi
