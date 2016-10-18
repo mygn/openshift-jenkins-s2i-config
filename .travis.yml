@@ -5,8 +5,5 @@ services:
 script:
   - ./s2i build . openshift/jenkins-1-centos7 fabric8/jenkins-openshift:dev --copy
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "dedicated" ]; then
-      docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-      docker push fabric8/jenkins-openshift:dev;
-    fi
-
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    docker push fabric8/jenkins-openshift:dev
