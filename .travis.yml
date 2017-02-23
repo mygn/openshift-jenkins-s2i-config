@@ -3,9 +3,9 @@ before_install:
 services:
   - docker
 script:
-  - ./s2i build . openshift/jenkins-1-centos7 fabric8/jenkins-openshift:dev --copy
+  - ./s2i build . openshift/jenkins-1-centos7 fabric8/jenkins-openshift:online --copy
 after_success:
   - if [ "$TRAVIS_BRANCH" == "dedicated" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push fabric8/jenkins-openshift:dev;
+    docker push fabric8/jenkins-openshift:online;
     fi
