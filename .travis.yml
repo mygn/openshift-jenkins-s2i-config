@@ -1,0 +1,11 @@
+before_install:
+  - curl -sSL https://github.com/openshift/source-to-image/releases/download/v1.1.2/source-to-image-v1.1.2-5732fdd-linux-amd64.tar.gz | tar vxz
+services:
+  - docker
+script:
+  - ./s2i build . openshift/jenkins-1-centos7 fabric8/jenkins-openshift:online --copy
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "dedicated" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push fabric8/jenkins-openshift:online;
+    fi
