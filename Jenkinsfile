@@ -26,7 +26,6 @@ dockerTemplate{
                 sh "docker push fabric8/jenkins-openshift:${newVersion}"
             }
             
-            stage 'Update downstream dependencies'
             pushPomPropertyChangePR {
                 propertyName = 'jenkins-openshift.version'
                 projects = [
