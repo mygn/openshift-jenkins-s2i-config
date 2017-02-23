@@ -102,7 +102,7 @@ windows-slaves:latest
 workflow-aggregator:latest
 workflow-api:latest
 workflow-basic-steps:latest
-workflow-cps:latest
+workflow-cps:2.27
 workflow-cps-global-lib:latest
 workflow-durable-task-step:latest
 workflow-job:latest
