@@ -1,0 +1,34 @@
+#!/usr/bin/groovy
+@Library('github.com/fabric8io/fabric8-pipeline-library@master')
+def name = 'openshift-jenkins-s2i-config'
+def org = 'fabric8io'
+s2iNode{
+    git "https://github.com/${org}/${name}.git"
+    if (env.BRANCH_NAME.startsWith('PR-')) {
+        echo 'Running CI pipeline'
+        container('s2i') {
+            sh 's2i build . openshift/jenkins-2-centos7:latest fabric8/jenkins-openshift:test --copy'
+        }
+    } else if (env.BRANCH_NAME.equals('master')) {
+        echo 'Running CD pipeline'
+        def newVersion = getNewVersion {}
+        
+        stage 's2i build'
+        container('s2i') {
+            sh 's2i build . openshift/jenkins-2-centos7:latest fabric8/jenkins-openshift:latest --copy'
+            sh 'docker push fabric8/jenkins-openshift:latest'
+            sh "docker tag fabric8/jenkins-openshift:latest fabric8/jenkins-openshift:${newVersion}"
+            sh "docker push fabric8/jenkins-openshift:${newVersion}"
+        }
+        
+        stage 'Update downstream dependencies'
+        pushPomPropertyChangePR {
+            propertyName = 'jenkins-openshift.version'
+            projects = [
+                    'fabric8io/fabric8-devops'
+            ]
+            version = newVersion
+            containerName = 'chunky'
+        }
+    }
+}
