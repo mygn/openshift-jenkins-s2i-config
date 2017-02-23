@@ -33,7 +33,7 @@ dockerTemplate{
                         'fabric8io/fabric8-devops'
                 ]
                 version = newVersion
-                containerName = 'chunky'
+                containerName = 's2i'
             }
         }
     }
