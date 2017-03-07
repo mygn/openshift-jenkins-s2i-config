@@ -15,6 +15,10 @@ dockerTemplate{
             def newVersion = getNewVersion {}
 
             stage 's2i build'
+            container('docker') {
+                // make sure we have the latest openshift image on the node
+                 sh 'docker pull openshift/jenkins-2-centos7:latest'
+            }
             container('s2i') {
                 sh 's2i build . openshift/jenkins-2-centos7:latest fabric8/jenkins-openshift:latest --copy'
             }
