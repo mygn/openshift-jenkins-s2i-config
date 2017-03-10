@@ -72,7 +72,6 @@ openid4java:0.9.8.0
 openshift-client:0.9.1
 openshift-login:0.11
 openshift-pipeline:1.0.42
-#openshift-sync:0.1.9
 pam-auth:1.3
 pipeline-build-step:2.4
 pipeline-github-lib:1.0
