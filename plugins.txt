@@ -59,6 +59,7 @@ kubernetes:0.10
 ldap:1.14
 mailer:1.19
 mapdb-api:1.0.9.0
+mask-passwords:2.9
 matrix-auth:1.4
 matrix-project:1.8
 mercurial:1.59
