@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<io.fabric8.jenkins.openshiftsync.GlobalPluginConfiguration plugin="openshift-sync@0.1-SNAPSHOT">
+  <enabled>true</enabled>
+  <jobNamePattern>.*</jobNamePattern>
+</io.fabric8.jenkins.openshiftsync.GlobalPluginConfiguration>
