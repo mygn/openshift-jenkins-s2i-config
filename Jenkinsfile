@@ -1,5 +1,5 @@
 #!/usr/bin/groovy
-@Library('github.com/rawlingsj/fabric8-pipeline-library@master')
+@Library('github.com/fabric8io/fabric8-pipeline-library@master')
 def name = 'openshift-jenkins-s2i-config'
 def org = 'fabric8io'
 dockerTemplate{
