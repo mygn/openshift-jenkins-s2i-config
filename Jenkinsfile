@@ -33,7 +33,7 @@ dockerTemplate{
             pushPomPropertyChangePR {
                 propertyName = 'jenkins-openshift.version'
                 projects = [
-                        'fabric8io/fabric8-devops'
+                        'fabric8io/fabric8-team-components'
                 ]
                 version = newVersion
                 containerName = 's2i'
