@@ -144,6 +144,9 @@
     <string>method hudson.model.Job getBuildByNumber int</string>
     <string>method hudson.model.Run getCause java.lang.Class</string>
     <string>method io.fabric8.jenkins.openshiftsync.BuildCause getName</string>
+    <string>staticMethod java.lang.Thread currentThread</string>
+    <string>method java.lang.Thread getContextClassLoader</string>
+    <string>method java.lang.ClassLoader loadClass java.lang.String</string>
   </approvedSignatures>
   <aclApprovedSignatures>
   </aclApprovedSignatures>
