@@ -42,7 +42,7 @@ dockerTemplate{
 
             stage 's2i build'
             container('s2i') {
-                sh 's2i build . fabric8/jenkins-openshift-base:v3952027t fabric8/jenkins-openshift:latest --copy'
+                sh 's2i build . fabric8/jenkins-openshift-base:v3952027 fabric8/jenkins-openshift:latest --copy'
             }
             
             stage 'push to dockerhub'
