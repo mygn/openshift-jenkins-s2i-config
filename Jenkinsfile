@@ -2,19 +2,23 @@
 @Library('github.com/fabric8io/fabric8-pipeline-library@master')
 def name = 'openshift-jenkins-s2i-config'
 def org = 'fabric8io'
+def project = org + '/' + repo
+def snapshotImageName
+def snapshot = false
 dockerTemplate{
     s2iNode{
-        git "https://github.com/${org}/${name}.git"
+        git "https://github.com/${project}.git"
         if (env.BRANCH_NAME.startsWith('PR-')) {
             echo 'Running CI pipeline'
-            def tag = "SNAPSHOT-${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+            snapshot = true
+            snapshotImageName = "fabric8/jenkins-openshift:SNAPSHOT-${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
             container('s2i') {
-                sh 's2i build . fabric8/jenkins-openshift-base:v3952027 ${tag} --copy'
+                sh 's2i build . fabric8/jenkins-openshift-base:v3952027 ${snapshotImageName} --copy'
             }
 
-            stage 'push to dockerhub'
+            stage "push snapshot to dockerhub"
             container('docker') {
-                sh "docker push fabric8/jenkins-openshift:${tag}"
+                sh "docker push ${snapshotImageName}"
             }
 
         } else if (env.BRANCH_NAME.equals('master')) {
@@ -47,4 +51,23 @@ dockerTemplate{
             }
         }
     }
+}
+
+if (snapshot){
+   clientsNode{
+       stage('notify'){
+           def changeAuthor = env.CHANGE_AUTHOR
+           if (!changeAuthor){
+               error "no commit author found so cannot comment on PR"
+           }
+           def pr = env.CHANGE_ID
+           if (!pr){
+               error "no pull request number found so cannot comment on PR"
+           }
+           def message = "@${changeAuthor} snapshot Jenkins image is available for testing.  `docker pull ${snapshotImageName}`"
+           container('clients'){
+               flow.addCommentToPullRequest(message, pr, project)
+           }
+       }
+   }
 }
