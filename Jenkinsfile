@@ -7,9 +7,16 @@ dockerTemplate{
         git "https://github.com/${org}/${name}.git"
         if (env.BRANCH_NAME.startsWith('PR-')) {
             echo 'Running CI pipeline'
+            def tag = "SNAPSHOT-${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
             container('s2i') {
-                sh 's2i build . openshift/jenkins-2-centos7:latest fabric8/jenkins-openshift:test --copy'
+                sh 's2i build . fabric8/jenkins-openshift-base:v3952027 ${tag} --copy'
             }
+
+            stage 'push to dockerhub'
+            container('docker') {
+                sh "docker push fabric8/jenkins-openshift:${tag}"
+            }
+
         } else if (env.BRANCH_NAME.equals('master')) {
             echo 'Running CD pipeline'
             def newVersion = getNewVersion {}
