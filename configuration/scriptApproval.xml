@@ -5,6 +5,8 @@
   <approvedSignatures>
     <string>staticMethod io.fabric8.kubernetes.api.KubernetesHelper getServiceURL io.fabric8.kubernetes.client.KubernetesClient java.lang.String java.lang.String java.lang.String boolean</string>
     <string>staticMethod io.fabric8.kubernetes.api.KubernetesHelper getServiceURL io.fabric8.kubernetes.client.DefaultKubernetesClient java.lang.String java.lang.String java.lang.String boolean</string>
+    <string>staticMethod io.fabric8.kubernetes.api.environments.Environments load</string>
+    <string>staticMethod io.fabric8.kubernetes.api.environments.Environments load java.lang.String</string>
     <string>staticMethod io.fabric8.kubernetes.api.environments.Environments load io.fabric8.kubernetes.client.KubernetesClient java.lang.String</string>
     <string>staticMethod io.fabric8.kubernetes.api.environments.Environments load io.fabric8.kubernetes.client.DefaultKubernetesClient java.lang.String</string>
     <string>staticMethod io.fabric8.kubernetes.api.environments.Environments namespaceForEnvironment java.lang.String</string>
