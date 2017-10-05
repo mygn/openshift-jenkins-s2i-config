@@ -72,6 +72,7 @@ mercurial:1.61
 metrics:3.1.2.10
 momentjs:1.1.1
 multiple-scms:0.6
+nodejs:1.2.4
 oauth-credentials:0.3
 oic-auth:1.0
 openid:2.2
