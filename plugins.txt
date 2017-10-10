@@ -39,7 +39,7 @@ favorite:2.3.0
 ghprb:1.39.0
 git-client:2.5.0
 git-server:1.7
-git:3.5.1
+git:3.6.0
 github-api:1.86
 github-branch-source:2.2.3
 github-issues:1.2.2
