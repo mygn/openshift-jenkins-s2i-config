@@ -1,12 +1,27 @@
 # openshift-jenkins-s2i-config
 
-Run the following steps to build and deploy this customised OpenShift Jenkins Pipeline image..
+The Jenkins image for OISO Tenants and https://jenkins.cd.test.fabric8.io.
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+- [Prerequisites](#prerequisites)
+- [Run](#run)
+- [List of plugin installed](#list-of-plugin-installed)
+  - [Required:](#required)
+  - [Optional but recommend:](#optional-but-recommend)
+  - [Optional but not recommended](#optional-but-not-recommended)
+- [Note](#note)
+- [TODO](#todo)
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Prerequisites
   - Get the latest [s2i](https://github.com/openshift/source-to-image/releases)
   - Run the following in the default namespace as explained in the todo below
 
 ## Run
+
+Run the following steps to build and deploy this customised OpenShift Jenkins
+Pipeline image..
 
     # modify the existing OpenShift Jenkins image adding Pipeline plugins and configuration
     s2i build https://github.com/fabric8io/openshift-jenkins-s2i-config.git openshift/jenkins-1-centos7 fabric8/jenkins-openshift-pipeline:latest
