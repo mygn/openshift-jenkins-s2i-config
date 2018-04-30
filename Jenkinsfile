@@ -42,8 +42,8 @@ dockerTemplate{
                     flow.addCommentToPullRequest(message, pr, project)
                 }
             }
-
-            deploySnapshot = true
+            // diabled the godog test for now lets revisit and check if required.
+            deploySnapshot = false
 
 
         } else if (env.BRANCH_NAME.equals('master')) {
@@ -167,10 +167,6 @@ def addCredsScript = """
             try {
                 def buildPath = '/go/src/github.com/fabric8-jenkins/godog-jenkins'
                 container('k8s'){
-                    sh 'chmod 600 /root/.ssh-git/ssh-key'
-                    sh 'chmod 600 /root/.ssh-git/ssh-key.pub'
-                    sh 'chmod 700 /root/.ssh-git'
-
                     sh "mkdir -p ${buildPath}"
                     sh "git clone https://github.com/fabric8-jenkins/godog-jenkins ${buildPath}"
 
