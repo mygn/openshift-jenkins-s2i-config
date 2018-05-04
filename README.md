@@ -2,6 +2,14 @@
 
 The Jenkins image for OISO Tenants and https://jenkins.cd.test.fabric8.io.
 
+## Update plugins
+we broke the plugin update after changes due to https://github.com/openshiftio/openshift.io/issues/2612
+Hence introduce new way to update plugins.
+1. Once you modified plugin.txt or added any .jpi/hpi in plugins folder
+2. Please run the script update-version.sh, it will just update the version.txt to next increamental number.
+3. git add version.txt
+4. commit this change with the PR required for upating the plugin
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 - [Prerequisites](#prerequisites)
@@ -86,7 +94,7 @@ After Jenkins is updated and you restart it, go to _Manage Jenkins_, _Script Con
 
 ```groovy
 Jenkins.instance.pluginManager.plugins.each{
-  plugin -> 
+  plugin ->
     println ("${plugin.getShortName()}:${plugin.getVersion()}")
 }
 ```
