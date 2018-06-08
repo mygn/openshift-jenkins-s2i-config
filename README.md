@@ -101,6 +101,10 @@ Jenkins.instance.pluginManager.plugins.each{
 
 Then just inspect the result and update the `plugins.txt` file properly.
 
+## Add/Update plugins configuration
+
+- Update [jenkins tenant configmap](https://github.com/fabric8-services/fabric8-tenant-jenkins/blob/master/apps/jenkins/src/main/fabric8/openshift-cm.yml) to add new  or update existing plugin configuration
+
 ## Note
 You'll need to [expose the Jenkins JNLP port](https://github.com/rawlingsj/openshift-jenkins-s2i-config/blob/master/configuration/config.xml#L80) and create a separate agent service like [this example](https://github.com/rawlingsj/openshift-jenkins-s2i-config/blob/master/jenkins-template.yml#L26-L43)
 
