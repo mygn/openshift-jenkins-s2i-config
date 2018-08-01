@@ -3,14 +3,17 @@ apache-httpcomponents-client-4-api:4.5.5-2.1
 async-http-client:1.9.40.0
 authentication-tokens:1.3
 blueocean-autofavorite:1.2.2
+blueocean-bitbucket-pipeline:1.5.0
 blueocean-commons:1.5.0
 blueocean-config:1.5.0
+blueocean-core-js:1.5.0
 blueocean-dashboard:1.5.0
 blueocean-display-url:2.2.0
 blueocean-events:1.5.0
 blueocean-git-pipeline:1.5.0
 blueocean-github-pipeline:1.5.0
 blueocean-i18n:1.5.0
+blueocean-jira:1.5.0
 blueocean-jwt:1.5.0
 blueocean-personalization:1.5.0
 blueocean-pipeline-api-impl:1.5.0
@@ -52,6 +55,7 @@ gradle:1.28
 htmlpublisher:1.14
 icon-shim:2.0.3
 jackson2-api:2.8.11.3
+jenkins-design-language:1.5.0
 jquery-detached:1.2.1
 jsch:0.1.54.1
 junit:1.24
