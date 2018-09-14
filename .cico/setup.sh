@@ -93,7 +93,7 @@ function updateDownstreamRepos() {
     git clone https://$(echo ${FABRIC8_HUB_TOKEN}|base64 --decode)@github.com/fabric8-services/fabric8-tenant-jenkins.git --depth=1 /tmp/fabric8-tenant-jenkins
     set -x
 
-    updatescript=$(readlink -f .ci/updatePomProperty.py)
+    updatescript=$(readlink -f .cico/updatePomProperty.py)
     cd /tmp/fabric8-tenant-jenkins
     git checkout -b ${branch}
     python ${updatescript} ${propertyName} ${newVersion}
