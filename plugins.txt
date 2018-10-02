@@ -131,7 +131,6 @@ github-branch-source:2.3.6
 job-dsl:1.69
 parameterized-trigger:2.35.2
 pipeline-model-declarative-agent:1.1.1
-role-strategy:2.9.0
 run-condition:1.0
 command-launcher:1.2
 pipeline-model-extensions:1.3
