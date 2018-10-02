@@ -100,6 +100,7 @@ pipeline-utility-steps:2.1.0
 plain-credentials:1.4
 pubsub-light:1.12
 resource-disposer:0.8
+role-strategy:2.9.0
 scm-api:2.2.7
 script-security:1.44
 sse-gateway:1.15
